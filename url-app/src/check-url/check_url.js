@@ -22,21 +22,6 @@ function Check_url(props) {
     const handleClick = () =>{
         callUrlApi()
     }  
-    if (typeof(updated) == 'undefined'){
-        return (
-            <div>
-            <h1>URL IT App</h1>
-            <input type="text"
-            id="url"
-            name="URL"
-            onChange={handleChange}
-            value={url}></input>
-            <button onClick={handleClick}>Submit</button>
-        </div>
-
-        )
-    }
-    else{
     return (
         <div>
             <h1>URL IT App</h1>
@@ -45,13 +30,12 @@ function Check_url(props) {
             name="URL"
             onChange={handleChange}
             value={url}></input>
-           
             <button onClick={handleClick}>Submit</button>
-        <div>{updated['pages'].map((inf)=><Url_info url={inf.url} word_count={inf.word_count}></Url_info>)}</div> 
+            <div>{typeof(updated) !== "undefined" && updated['pages'].map((inf)=><Url_info url={inf.url} word_count={inf.word_count}></Url_info>)}</div> 
        
         </div>
     );
-}
+
 }
 
 export default Check_url;
