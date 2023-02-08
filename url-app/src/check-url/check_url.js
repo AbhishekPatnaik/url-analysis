@@ -6,6 +6,7 @@ import "./check-url.css";
 function Check_url(props) {
     const [url, setUrl] = useState("");
     const [updated, setUpdated] = useState();
+    const [loader, setloader] = useState("0")
     const client = axios.create({
         baseURL: "https://just-run-this.onrender.com/get-url-info/" 
      });
@@ -14,9 +15,10 @@ function Check_url(props) {
 
       };
     const callUrlApi = (event) => {
+        setloader("1")
         client.get('?q='+url).then((response) => {
             setUpdated(response.data);
-            console.log(response.data);
+            setloader("0")
          });
     }
 
@@ -34,7 +36,7 @@ function Check_url(props) {
             </div>
             <button onClick={handleClick}>Submit</button>
             <div>{typeof(updated) !== "undefined" && updated['pages'].map((inf)=><Url_info url={inf.url} word_count={inf.word_count}></Url_info>)}</div> 
-       
+            {loader == "1" && <p>loading !! Please wait</p>}
         </div>
     );
 
