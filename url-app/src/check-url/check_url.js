@@ -45,7 +45,7 @@ function Check_url(props) {
             name="URL"
             onChange={handleChange}
             value={url}></input>
-            <div>{url}</div>
+           
             <button onClick={handleClick}>Submit</button>
         <div>{updated['pages'].map((inf)=><Url_info url={inf.url} word_count={inf.word_count}></Url_info>)}</div> 
        
