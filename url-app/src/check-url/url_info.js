@@ -5,7 +5,8 @@ function Url_info(props) {
     return (
         <div class="card">
        
-            <p>{props.url}</p>
+            <h3>Page Url:</h3> <p>{props.url}</p>
+            <h3>Word Count</h3>
              <p>{props.word_count}</p>
         </div>
        

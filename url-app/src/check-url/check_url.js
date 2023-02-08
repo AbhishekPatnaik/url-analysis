@@ -31,7 +31,6 @@ function Check_url(props) {
             name="URL"
             onChange={handleChange}
             value={url}></input>
-            <div>{url}</div>
             <button onClick={handleClick}>Submit</button>
         </div>
 
